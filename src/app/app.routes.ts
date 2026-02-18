@@ -5,10 +5,17 @@ import { Customer } from './page/dashboard/customer/customer';
 import { Item } from './page/dashboard/item/item';
 import { Order } from './page/dashboard/order/order';
 import { DashRoot } from './page/dashboard/dash-root/dash-root';
+import { Home } from './page/home/home';
 
 export const routes: Routes = [
+
     {
         path:"",
+        component:Home
+    },
+
+    {
+        path:"login",
         component:Login
     },
 
