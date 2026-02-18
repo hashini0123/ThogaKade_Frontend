@@ -12,9 +12,13 @@ export const routes: Routes = [
     },
 
     {
-        path:"dashboard",
+        path:'dashboard',
         component:Dashboard,
         children:[
+            {
+                path:"",
+                component:DashRoot
+            },
             {
                 path:"customer",
                 component:Customer
