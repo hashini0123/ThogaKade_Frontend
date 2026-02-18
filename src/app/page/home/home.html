@@ -1,46 +1,60 @@
-<div class="min-h-screen bg-[#fafafa] text-slate-900 font-sans">
+<div class="min-h-screen bg-[#0b0f1a] text-slate-400 font-sans selection:bg-indigo-500/30 overflow-hidden">
   
-  <div class="absolute top-0 inset-x-0 h-96 bg-gradient-to-b from-blue-50/50 to-transparent -z-10"></div>
+  <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-600/10 blur-[120px] rounded-full -z-10"></div>
+  <div class="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-blue-600/10 blur-[120px] rounded-full -z-10"></div>
 
   <div class="max-w-7xl mx-auto px-8">
     
     <nav class="flex justify-between items-center py-10">
-      <div class="flex items-center space-x-2">
-        <div class="w-8 h-8 bg-indigo-600 rounded-lg transform rotate-12"></div>
-        <span class="text-xl font-bold tracking-tight text-slate-800">ThogaKade POS Management.</span>
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 bg-indigo-600 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(79,70,229,0.4)]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+        </div>
+        <span class="text-xl font-black tracking-tighter text-white uppercase italic">ThogaKade POS Management<span class="text-indigo-500">.</span></span>
       </div>
 
-      <div class="hidden md:flex bg-white shadow-sm border border-slate-200/60 rounded-full px-6 py-2.5 space-x-8 text-sm font-medium text-slate-600">
-        <a routerLink="" class="hover:text-indigo-600 transition-colors">Features</a>
-        <a href="#" class="hover:text-indigo-600 transition-colors">Solutions</a>
-        <a href="#" class="hover:text-indigo-600 transition-colors">Pricing</a>
-      </div>
+      <!-- <div class="hidden md:flex bg-slate-900/50 backdrop-blur-md border border-slate-800 rounded-full px-8 py-3 space-x-10 text-xs font-bold uppercase tracking-widest text-slate-500">
+        <a routerLink="" class="hover:text-indigo-400 transition-colors">Inventory</a>
+        <a href="#" class="hover:text-indigo-400 transition-colors">Analytics</a>
+        <a href="#" class="hover:text-indigo-400 transition-colors">Pricing</a>
+      </div> -->
 
-      <div class="flex items-center gap-5">
-        <a routerLink="/login" class="text-sm font-semibold text-slate-600 hover:text-black">login</a>
-        <button class="bg-indigo-600 text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-200 transition-all active:scale-95">
-          Start Free Trial
+      <div class="flex items-center gap-6">
+        <a routerLink="/login" class="text-sm font-bold text-slate-400 hover:text-white transition-colors">LOGIN</a>
+        <button class="bg-indigo-600 text-white px-7 py-3 rounded-xl font-bold text-sm hover:bg-indigo-500 shadow-lg shadow-indigo-900/20 transition-all active:scale-95">
+          GET STARTED
         </button>
       </div>
     </nav>
 
-    <main class="pt-16 pb-32">
-      <div class="text-center max-w-4xl mx-auto">
+    <main class="pt-20 pb-32">
+      <div class="text-center max-w-4xl mx-auto space-y-10">
         
-        <h1 class="text-6xl md:text-8xl font-extrabold text-slate-900 tracking-tight leading-[0.95] mb-8">
-          The POS that <br>
-          <span class="text-indigo-600">thinks for you.</span>
+        <div class="inline-block bg-slate-900 border border-slate-800 px-4 py-1.5 rounded-full">
+           <span class="text-[10px] font-black tracking-[0.2em] text-indigo-400 uppercase italic">Powering 2,000+ Retailers</span>
+        </div>
+
+        <h1 class="text-7xl md:text-9xl font-black text-white tracking-tighter leading-[0.85]">
+          Master your <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400 italic">Operations.</span>
         </h1>
         
-        <p class="text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto mb-12">
-          Stop wrestling with inventory. Thogakade automates your supermarket workflow, 
-          letting you focus on scaling your business, not counting stock.
+        <p class="text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto font-medium">
+          Eliminate manual errors. Thogakade provides a high-performance engine 
+          to track stock, manage staff, and boost your retail revenue in real-time.
         </p>
 
-        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <button class="w-full sm:w-auto bg-white text-slate-950 px-12 py-5 rounded-2xl font-black text-lg hover:bg-slate-200 transition-all shadow-2xl shadow-white/5">
+            START FOR FREE
+          </button>
+          <button class="w-full sm:w-auto bg-slate-900/50 backdrop-blur-sm text-white border border-slate-800 px-12 py-5 rounded-2xl font-black text-lg hover:bg-slate-800 transition-all">
+            WATCH DEMO
+          </button>
+        </div>
       </div>
-
-      
     </main>
 
   </div>
