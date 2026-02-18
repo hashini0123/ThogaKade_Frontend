@@ -1,26 +1,47 @@
-<div class="main-container">
-  <nav class="navbar">
-    <div class="logo">THOGAKADE POS Management</div>
-    <div class="nav-links">
-      <a routerLink="">Features</a>
-      <a href="#">Pricing</a>
-      <a href="#">About Us</a>
-    </div>
-    <div class="nav-auth">
-      <a routerLink="/login" class="login-link">Login</a>
-      <button class="btn-signup">Sign Up Free</button>
-    </div>
-  </nav>
+<div class="min-h-screen bg-[#fafafa] text-slate-900 font-sans">
+  
+  <div class="absolute top-0 inset-x-0 h-96 bg-gradient-to-b from-blue-50/50 to-transparent -z-10"></div>
 
-  <main class="hero">
-    <div class="hero-text">
-      <div class="rocket-badge"> THE POS SYSTEM</div>
-      <h1>Manage your super market <br><span class="highlight">Smart & Fast.</span></h1>
-      <p>
-        Thogakade provides the ultimate solution for inventory management, 
-        customer relations, and real-time order tracking. Everything you need in one place.
-      </p>
+  <div class="max-w-7xl mx-auto px-8">
     
-    </div>
-  </main>
+    <nav class="flex justify-between items-center py-10">
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 bg-indigo-600 rounded-lg transform rotate-12"></div>
+        <span class="text-xl font-bold tracking-tight text-slate-800">ThogaKade POS Management.</span>
+      </div>
+
+      <div class="hidden md:flex bg-white shadow-sm border border-slate-200/60 rounded-full px-6 py-2.5 space-x-8 text-sm font-medium text-slate-600">
+        <a routerLink="" class="hover:text-indigo-600 transition-colors">Features</a>
+        <a href="#" class="hover:text-indigo-600 transition-colors">Solutions</a>
+        <a href="#" class="hover:text-indigo-600 transition-colors">Pricing</a>
+      </div>
+
+      <div class="flex items-center gap-5">
+        <a routerLink="/login" class="text-sm font-semibold text-slate-600 hover:text-black">login</a>
+        <button class="bg-indigo-600 text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-200 transition-all active:scale-95">
+          Start Free Trial
+        </button>
+      </div>
+    </nav>
+
+    <main class="pt-16 pb-32">
+      <div class="text-center max-w-4xl mx-auto">
+        
+        <h1 class="text-6xl md:text-8xl font-extrabold text-slate-900 tracking-tight leading-[0.95] mb-8">
+          The POS that <br>
+          <span class="text-indigo-600">thinks for you.</span>
+        </h1>
+        
+        <p class="text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto mb-12">
+          Stop wrestling with inventory. Thogakade automates your supermarket workflow, 
+          letting you focus on scaling your business, not counting stock.
+        </p>
+
+        
+      </div>
+
+      
+    </main>
+
+  </div>
 </div>
