@@ -1,36 +1,66 @@
 <div class="space-y-6">
-  <!-- Header Section -->
   <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
     <div>
       <h1 class="text-3xl font-bold text-heading">Customers</h1>
       <p class="text-body mt-2">Manage and view all your customers</p>
     </div>
-    <button class="px-6 py-2.5 bg-brand text-white font-semibold rounded-lg hover:bg-brand-strong transition-all shadow-sm hover:shadow-md flex items-center gap-2">
-      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m7-7H5"/>
-      </svg>
-      Add Customer
-    </button>
   </div>
 
-  <!-- Search and Filter Section -->
-  <div class="bg-white border border-default-medium rounded-lg p-4 shadow-sm">
-    <div class="flex flex-col sm:flex-row gap-4">
-      <div class="flex-1">
-        <input type="text" placeholder="Search by name, email, or phone..." class="w-full px-4 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-lg focus:ring-2 focus:ring-brand focus:border-transparent placeholder:text-body" />
+  <!-- add-customer design form (static, no TS bindings) -->
+  <div class="bg-white border border-default-medium rounded-lg shadow-sm p-6 mb-6">
+    <form>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-heading" for="custID">ID</label>
+          <input id="custID" name="custID" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-heading" for="custName">Name</label>
+          <input id="custName" name="custName" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-heading" for="custTitle">Title</label>
+          <input id="custTitle" name="custTitle" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-heading" for="DOB">Date of Birth</label>
+          <input id="DOB" type="date" name="DOB" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-heading" for="salary">Salary</label>
+          <input id="salary" type="number" name="salary" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-heading" for="custAddress">Address</label>
+          <input id="custAddress" name="custAddress" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-heading" for="city">City</label>
+          <input id="city" name="city" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-heading" for="province">Province</label>
+          <input id="province" name="province" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-heading" for="postalcode">Postal Code</label>
+          <input id="postalcode" name="postalcode" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+        </div>
       </div>
-      <button class="px-6 py-2.5 bg-neutral-secondary-medium text-heading font-semibold rounded-lg hover:bg-neutral-tertiary transition-all">
-        Search
-      </button>
-    </div>
+      <div class="mt-4 flex justify-end">
+        <button type="submit" class="px-6 py-2.5 bg-brand text-white font-semibold rounded-lg hover:bg-brand-strong transition-all shadow-sm hover:shadow-md">
+          Save Customer
+        </button>
+      </div>
+    </form>
   </div>
 
-  <!-- Table Section -->
   <div class="bg-white border border-default-medium rounded-lg shadow-sm overflow-hidden">
     <div class="overflow-x-auto">
       <table class="w-full">
         <thead class="bg-neutral-primary-soft border-b border-default-medium">
           <tr>
+            <th class="px-6 py-4 text-left text-sm font-semibold text-heading">RowNumber</th>
             <th class="px-6 py-4 text-left text-sm font-semibold text-heading">ID</th>
             <th class="px-6 py-4 text-left text-sm font-semibold text-heading">Title</th>
             <th class="px-6 py-4 text-left text-sm font-semibold text-heading">Name</th>
@@ -43,7 +73,8 @@
           </tr>
         </thead>
         <tbody class="divide-y divide-default-medium">
-          <tr *ngFor="let customer of customerList" class="hover:bg-neutral-primary-soft transition-all">
+          <tr *ngFor="let customer of customerList; let i = index" class="hover:bg-neutral-primary-soft transition-all">
+            <td class="px-6 py-4 text-sm text-heading font-medium">{{i+1}}</td>
             <td class="px-6 py-4 text-sm text-heading font-medium">{{ customer.custID }}</td>
             <td class="px-6 py-4 text-sm text-heading font-medium">{{ customer.custName }}</td>
             <td class="px-6 py-4 text-sm text-body">{{ customer.custTitle }}</td>
