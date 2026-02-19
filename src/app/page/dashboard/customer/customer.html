@@ -1,1 +1,93 @@
-<p>customer works!</p>
+<div class="space-y-6">
+  <!-- Header Section -->
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+    <div>
+      <h1 class="text-3xl font-bold text-heading">Customers</h1>
+      <p class="text-body mt-2">Manage and view all your customers</p>
+    </div>
+    <button class="px-6 py-2.5 bg-brand text-white font-semibold rounded-lg hover:bg-brand-strong transition-all shadow-sm hover:shadow-md flex items-center gap-2">
+      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m7-7H5"/>
+      </svg>
+      Add Customer
+    </button>
+  </div>
+
+  <!-- Search and Filter Section -->
+  <div class="bg-white border border-default-medium rounded-lg p-4 shadow-sm">
+    <div class="flex flex-col sm:flex-row gap-4">
+      <div class="flex-1">
+        <input type="text" placeholder="Search by name, email, or phone..." class="w-full px-4 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-lg focus:ring-2 focus:ring-brand focus:border-transparent placeholder:text-body" />
+      </div>
+      <button class="px-6 py-2.5 bg-neutral-secondary-medium text-heading font-semibold rounded-lg hover:bg-neutral-tertiary transition-all">
+        Search
+      </button>
+    </div>
+  </div>
+
+  <!-- Table Section -->
+  <div class="bg-white border border-default-medium rounded-lg shadow-sm overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="w-full">
+        <thead class="bg-neutral-primary-soft border-b border-default-medium">
+          <tr>
+            <th class="px-6 py-4 text-left text-sm font-semibold text-heading">ID</th>
+            <th class="px-6 py-4 text-left text-sm font-semibold text-heading">Name</th>
+            <th class="px-6 py-4 text-left text-sm font-semibold text-heading">Title</th>
+            <th class="px-6 py-4 text-left text-sm font-semibold text-heading">Date of Birth</th>
+            <th class="px-6 py-4 text-left text-sm font-semibold text-heading">Salary</th>
+            <th class="px-6 py-4 text-left text-sm font-semibold text-heading">Address</th>
+            <th class="px-6 py-4 text-left text-sm font-semibold text-heading">City</th>
+            <th class="px-6 py-4 text-left text-sm font-semibold text-heading">Province</th>
+            <th class="px-6 py-4 text-left text-sm font-semibold text-heading">Postal Code</th>
+            <th class="px-6 py-4 text-center text-sm font-semibold text-heading">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-default-medium">
+          <tr *ngFor="let customer of customerList" class="hover:bg-neutral-primary-soft transition-all">
+            <td class="px-6 py-4 text-sm text-heading font-medium">{{ customer.id }}</td>
+            <td class="px-6 py-4 text-sm text-heading font-medium">{{ customer.custName }}</td>
+            <td class="px-6 py-4 text-sm text-body">{{ customer.title }}</td>
+            <td class="px-6 py-4 text-sm text-body">{{ customer.dob }}</td>
+            <td class="px-6 py-4 text-sm text-body">{{ customer.salary }}</td>
+            <td class="px-6 py-4 text-sm text-body">{{ customer.address }}</td>
+            <td class="px-6 py-4 text-sm text-body">{{ customer.city }}</td>
+            <td class="px-6 py-4 text-sm text-body">{{ customer.postalCode }}</td>
+            <td class="px-6 py-4 text-sm text-body">{{ customer.province }}</td>
+            <td class="px-6 py-4">
+              <div class="flex items-center justify-center gap-2">
+                <button class="inline-flex items-center justify-center w-8 h-8 rounded-lg text-brand bg-brand-soft hover:bg-brand hover:text-white transition-all" title="Edit">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.3 4.7l2.29-2.268a2.967 2.967 0 0 1 4.192 4.192l-2.268 2.29m0 0a9.935 9.935 0 0 1-5.305 2.456m0 0a9.934 9.934 0 0 1-5.595-2.456m7.95 7.95a9.935 9.935 0 0 1-7.95-3.718m7.95 7.95L9.7 19.3m7.95-7.95l2.29 2.29"/>
+                  </svg>
+                </button>
+                <button class="inline-flex items-center justify-center w-8 h-8 rounded-lg text-danger bg-red-50 hover:bg-danger hover:text-white transition-all" title="Delete">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-4 px-4">
+    <p class="text-sm text-body">
+      Showing <span class="font-semibold text-heading">{{ customerList.length }}</span> customers
+    </p>
+    <div class="flex items-center gap-2">
+      <button class="px-3 py-2 rounded-lg border border-default-medium text-body hover:bg-neutral-primary-soft transition-all">
+        Previous
+      </button>
+      <button class="px-3 py-2 rounded-lg bg-brand text-white font-semibold">1</button>
+      <button class="px-3 py-2 rounded-lg border border-default-medium text-body hover:bg-neutral-primary-soft transition-all">2</button>
+      <button class="px-3 py-2 rounded-lg border border-default-medium text-body hover:bg-neutral-primary-soft transition-all">
+        Next
+      </button>
+    </div>
+  </div>
+</div>
