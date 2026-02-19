@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CustomerModel } from '../../../../model/type';
 import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-customer',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './customer.html',
   styleUrl: './customer.css',
 })
@@ -18,7 +19,7 @@ export class Customer {
   } 
   
   getAll() {
-    this.http.get<CustomerModel[]>("http://localhost:8080/customer/getAll()").subscribe(data =>{
+    this.http.get<CustomerModel[]>("http://localhost:8080/get").subscribe(data =>{
       this.customerList = data;
     })
   }

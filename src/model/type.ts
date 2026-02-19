@@ -1,10 +1,10 @@
 export interface CustomerModel{
-    custid:string;
+    custID:string;
     custName:string;
     custTitle:string;
-    dob:Date;
+    DOB:object;
     salary:number;
-    address:string;
+    custAddress:string;
     city:string;
     province:string;
     postalcode:string;
