@@ -18,7 +18,7 @@ export class Customer implements OnInit{
       custID: '',
       custTitle: '',
       custName: '',
-      DOB: {},
+      DOB: '',
       salary: 0.0,
       custAddress: '',
       city: '',
@@ -36,7 +36,7 @@ export class Customer implements OnInit{
   }
   
   getAll() {
-    this.http.get<CustomerModel[]>("http://localhost:8080/get").subscribe(data =>{
+    this.http.get<CustomerModel[]>("http://localhost:8080/customer/get").subscribe(data =>{
       this.customerList = data;
       this.cdr.detectChanges();   
     })
@@ -52,7 +52,7 @@ export class Customer implements OnInit{
   addCustomer(): void {
 
     console.log(this.customerObj);
-    this.http.post("http://localhost:8080/add", this.customerObj).subscribe(data => {
+    this.http.post("http://localhost:8080/customer/add", this.customerObj).subscribe(data => {
       console.log(data);
       if(data === true){
         Swal.fire({
@@ -95,4 +95,3 @@ export class Customer implements OnInit{
 
   
 }
-

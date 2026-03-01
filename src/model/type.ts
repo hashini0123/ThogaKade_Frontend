@@ -2,7 +2,7 @@ export interface CustomerModel {
     custID: string;
     custTitle: string;
     custName: string;
-    DOB: object;
+    DOB: String;
     salary: number;
     custAddress: string;
     city: string;
@@ -11,12 +11,3 @@ export interface CustomerModel {
 }
 
 
-// String custID;
-//     private String custName;
-//     private String custTitle;
-//     private LocalDate DOB;
-//     private double salary;
-//     private String custAddress;
-//     private String city;
-//     private String province;
-//     private String postalcode;
