@@ -12,6 +12,9 @@ import Swal from 'sweetalert2';
   styleUrl: './customer.css',
 })
 export class Customer implements OnInit{
+deleteByIdentifier() {
+throw new Error('Method not implemented.');
+}
     customerList: Array<CustomerModel> = [];
     showAddForm = false;
     customerObj: CustomerModel = {
@@ -25,6 +28,7 @@ export class Customer implements OnInit{
       province: '',
       postalcode: '',
     }
+deleteID: any;
     
 
   constructor(private http:HttpClient,private cdr:ChangeDetectorRef) {
