@@ -18,8 +18,22 @@
                     <label class="block text-sm font-medium text-heading" for="description">Description</label>
                     <input [(ngModel)]="itemObj.description" id="description" name="description" required
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
-
-
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-heading" for="packSize">Pack Size</label>
+                    <input [(ngModel)]="itemObj.packSize" id="packSize" name="packSize" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-heading" for="unitPrice">Unit Price</label>
+                    <input [(ngModel)]="itemObj.unitPrice" id="unitPrice" name="unitPrice" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-heading" for="qtyOnHand">Quantity on Hand</label>
+                    <input [(ngModel)]="itemObj.qtyOnHand" id="qtyOnHand" name="qtyOnHand" required
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                </div>
             </div>
         </form>
     </div>
