@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './item.css',
 })
 export class Item {
+itemObj: any;
 
 }
