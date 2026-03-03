@@ -10,4 +10,18 @@ export interface CustomerModel {
     postalcode: string;
 }
 
+export interface ItemModel{
+    itemCode: string;
+    description: string;
+    packSize: string;
+    unitPrice: number;
+    qtyOnHand: number;
+}
+
+export interface OrderModel{
+    orderID: string;
+    orderDate: Date;
+    custID: string;
+}
+
 
