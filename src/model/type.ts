@@ -2,7 +2,7 @@ export interface CustomerModel {
     custID: string;
     custTitle: string;
     custName: string;
-    DOB: String;
+    DOB: string;
     salary: number;
     custAddress: string;
     city: string;
