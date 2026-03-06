@@ -13,8 +13,17 @@ import Swal from 'sweetalert2';
 })
 export class Customer implements OnInit{
 deleteByIdentifier() {
-throw new Error('Method not implemented.');
-}
+  this.http.delete("http://localhost:8080/customer/delete-by-id/" + this.deleteID).subscribe(data => {
+      if (data === true) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+        this.getAll();
+        this.deleteID = '';
+      }
+    })}
     customerList: Array<CustomerModel> = [];
     showAddForm = false;
     customerObj: CustomerModel = {
@@ -71,20 +80,15 @@ deleteID: any;
   }
 
   deleteCustomer(id: string) {
-    
-
-        this.http.delete("http://localhost:8080/customer/delete-by-id/" + id).subscribe(data => {
-          if (data === true) {
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success"
-            });
-            this.getAll();
-            this.deleteID = ''
-          }
-        })
-
-
+    this.http.delete("http://localhost:8080/customer/delete-by-id/" + this.deleteID).subscribe(data => {
+      if (data === true) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+        this.getAll();
+      }
+    })
   }
 };
