@@ -1,24 +1,97 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { CustomerModel, ItemModel } from '../../../../model/type';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-item',
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './item.html',
   styleUrl: './item.css',
 })
-export class Item {
-deleteitemCode: any;
-itemList: any;
+export class Item implements OnInit{
 deleteByIdentifier() {
 throw new Error('Method not implemented.');
 }
+    itemList: Array<ItemModel> = [];
+    showAddForm = false;
+    itemObj: ItemModel = {
+      itemCode: '',
+      description: '',
+      packSize: '',
+      unitPrice: 0.0,
+      qtyOnHand: 0.0,
+    }
 deleteID: any;
-toggleAddForm() {
-throw new Error('Method not implemented.');
-}
-addItem() {
-throw new Error('Method not implemented.');
-}
-  itemObj: any;
+    
 
+  constructor(private http:HttpClient,private cdr:ChangeDetectorRef) {
+
+  } 
+
+  ngOnInit(): void {
+    this.getAll();
+  }
+  
+  getAll() {
+    this.http.get<ItemModel[]>("http://localhost:8080/item/get").subscribe(data =>{
+      this.itemList = data;
+      this.cdr.detectChanges();   
+    })
+  }
+
+  toggleAddForm(): void {
+    this.showAddForm = !this.showAddForm;
+    if (!this.showAddForm) {
+
+    }
+  }
+
+  addItem(): void {
+
+    console.log(this.itemObj);
+    this.http.post("http://localhost:8080/item/add", this.itemObj).subscribe(data => {
+      console.log(data);
+      if(data === true){
+        Swal.fire({
+          title: "Good job!",
+          text: "You clicked the button!",
+          icon: "success"
+        });
+      }
+      this.getAll();
+    })
+  }
+
+  deleteItemCode(id: string) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.http.delete("http://localhost:8080/item/delete-by-id/" + id).subscribe(data => {
+          if (data === true) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+            this.getAll();
+          }
+        })
+
+
+      }
+    });
+  }
+
+  
 }
