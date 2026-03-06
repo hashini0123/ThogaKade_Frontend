@@ -21,6 +21,7 @@ deleteByIdentifier() {
               icon: "success"
             });
             this.getAll();
+            this.deleteID = '';
           }
         })}
     itemList: Array<ItemModel> = [];
