@@ -13,8 +13,16 @@ import Swal from 'sweetalert2';
 })
 export class Item implements OnInit{
 deleteByIdentifier() {
-throw new Error('Method not implemented.');
-}
+        this.http.delete("http://localhost:8080/item/delete-by-id/" + this.deleteItemCode).subscribe(data => {
+          if (data === true) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+            this.getAll();
+          }
+        })}
     itemList: Array<ItemModel> = [];
     showAddForm = false;
     itemObj: ItemModel = {
@@ -33,6 +41,7 @@ deleteID: any;
 
   ngOnInit(): void {
     this.getAll();
+    this.cdr.detectChanges();
   }
   
   getAll() {
@@ -66,17 +75,7 @@ deleteID: any;
   }
 
   deleteItemCode(id: string) {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
-      if (result.isConfirmed) {
-
+    
         this.http.delete("http://localhost:8080/item/delete-by-id/" + id).subscribe(data => {
           if (data === true) {
             Swal.fire({
@@ -90,8 +89,5 @@ deleteID: any;
 
 
       }
-    });
-  }
-
   
-}
+  }
