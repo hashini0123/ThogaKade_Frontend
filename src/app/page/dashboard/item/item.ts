@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class Item implements OnInit{
 deleteByIdentifier() {
-        this.http.delete("http://localhost:8080/item/delete-by-id/" + this.deleteItemCode).subscribe(data => {
+        this.http.delete("http://localhost:8080/item/delete-by-id/" + this.deleteID).subscribe(data => {
           if (data === true) {
             Swal.fire({
               title: "Deleted!",
@@ -89,6 +89,6 @@ deleteID: any;
         })
 
 
-      }
-  
   }
+  
+}
