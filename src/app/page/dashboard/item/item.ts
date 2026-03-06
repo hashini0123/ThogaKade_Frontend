@@ -7,6 +7,18 @@ import { Component } from '@angular/core';
   styleUrl: './item.css',
 })
 export class Item {
-itemObj: any;
+deleteitemCode: any;
+itemList: any;
+deleteByIdentifier() {
+throw new Error('Method not implemented.');
+}
+deleteID: any;
+toggleAddForm() {
+throw new Error('Method not implemented.');
+}
+addItem() {
+throw new Error('Method not implemented.');
+}
+  itemObj: any;
 
 }

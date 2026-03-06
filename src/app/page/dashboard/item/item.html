@@ -1,8 +1,8 @@
 <div class="space-y-6">
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-            <h1 class="text-3xl font-bold text-heading">Item</h1>
-            <p class="text-body mt-2">Manage and view all your items</p>
+            <h1 class="text-3xl font-bold text-heading">Customers</h1>
+            <p class="text-body mt-2">Manage and view all your customers</p>
         </div>
     </div>
 
@@ -10,12 +10,12 @@
         <form class="flex flex-col h-full">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex-1">
                 <div>
-                    <label class="block text-sm font-medium text-heading" for="itemID">ID</label>
-                    <input [(ngModel)]="itemObj.itemID" id="itemID" name="itemID" required
+                    <label class="block text-sm font-medium text-heading" for="itemCode">ID</label>
+                    <input [(ngModel)]="itemObj.itemCode" id="itemCode" name="itemCode" required
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-heading" for="description">Description</label>
+                    <label class="block text-sm font-medium text-heading" for="description">Name</label>
                     <input [(ngModel)]="itemObj.description" id="description" name="description" required
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
                 </div>
@@ -26,20 +26,99 @@
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-heading" for="unitPrice">Unit Price</label>
-                    <input [(ngModel)]="itemObj.unitPrice" id="unitPrice" name="unitPrice" required
+                    <input [(ngModel)]="itemObj.unitPrice" id="unitPrice" type="number" name="unitPrice" step="0.01" required
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-heading" for="qtyOnHand">Quantity on Hand</label>
-                    <input [(ngModel)]="itemObj.qtyOnHand" id="qtyOnHand" name="qtyOnHand" required
+                    <input [(ngModel)]="itemObj.qtyOnHand" id="qtyOnHand" type="number" name="qtyOnHand" step="1" required
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
                 </div>
             </div>
+            <div class="flex justify-end gap-3 pt-8 mt-8 border-t border-gray-200">
+                <button
+                  type="button"
+                  (click)="addItem()"
+                  class="px-8 py-3 bg-brand text-white font-semibold rounded-lg shadow-md hover:shadow-lg hover:bg-brand-strong active:shadow-none transition-all duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                >
+                  Save Customer
+                </button>
+                <button
+                    type="button"
+                    (click)="toggleAddForm()"
+                    class="px-6 py-2.5 bg-neutral-secondary-medium text-heading font-semibold rounded-lg hover:bg-neutral-tertiary transition-all"
+                    >
+                    Cancel
+                </button>
+            </div>
         </form>
     </div>
+          <div class="flex gap-3 pt-4">
 
+      </div>
 
+    <div class="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+        <h3 class="text-lg font-semibold text-red-700 mb-2">Delete Item</h3>
+        <div class="flex gap-4">
+            <input 
+                type="text" 
+                [(ngModel)]="deleteItemCode" 
+                placeholder="Enter Item Code  (e.g. I001)"
+                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500" />
+            
+            <button 
+                (click)="deleteByIdentifier()"
+                class="px-6 py-2 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-all">
+                Delete Now
+            </button>
+        </div>
+    </div>
 
+    <div class="bg-white border border-default-medium rounded-lg shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full">
+                <thead class="bg-neutral-primary-soft border-b border-default-medium">
+                    <tr>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-heading">RowNumber</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-heading">Item Code</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-heading">Description</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-heading">Pack Size</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-heading">Unit Price</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold text-heading">Quantity on Hand</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-default-medium">
+                    <tr *ngFor="let item of itemList; let i = index"
+                        class="hover:bg-neutral-primary-soft transition-all">
+                        <td class="px-6 py-4 text-sm text-heading font-medium">{{i+1}}</td>
+                        <td class="px-6 py-4 text-sm text-heading font-medium">{{ item.itemCode }}</td>
+                        <td class="px-6 py-4 text-sm text-heading font-medium">{{ item.description }}</td>
+                        <td class="px-6 py-4 text-sm text-heading font-medium">{{ item.packSize }}</td>
+                        <td class="px-6 py-4 text-sm text-heading font-medium">{{ item.unitPrice }}</td>
+                        <td class="px-6 py-4 text-sm text-heading font-medium">{{ item.qtyOnHand }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
+    </div>
 
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 px-4">
+        <p class="text-sm text-body">
+            Showing <span class="font-semibold text-heading">{{ itemList.length }}</span> items
+        </p>
+        <div class="flex items-center gap-2">
+            <button
+                class="px-3 py-2 rounded-lg border border-default-medium text-body hover:bg-neutral-primary-soft transition-all">
+                Previous
+            </button>
+            <button class="px-3 py-2 rounded-lg bg-brand text-white font-semibold">1</button>
+            <button
+                class="px-3 py-2 rounded-lg border border-default-medium text-body hover:bg-neutral-primary-soft transition-all">2</button>
+            <button
+                class="px-3 py-2 rounded-lg border border-default-medium text-body hover:bg-neutral-primary-soft transition-all">
+                Next
+            </button>
+        </div>
+    </div>
 </div>

@@ -18,10 +18,10 @@ export interface ItemModel{
     qtyOnHand: number;
 }
 
-export interface OrderModel{
-    orderID: string;
-    orderDate: Date;
-    custID: string;
-}
+// export interface OrderModel{
+//     orderID: string;
+//     orderDate: Date;
+//     custID: string;
+// }
 
 
