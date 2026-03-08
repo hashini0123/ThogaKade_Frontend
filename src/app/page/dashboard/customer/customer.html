@@ -6,53 +6,53 @@
         </div>
     </div>
 
-    <div class="bg-white border border-default-medium rounded-lg shadow-sm p-6 mb-6">
+    <div class="bg-amber-100 border-default-medium rounded-lg shadow-sm p-6 mb-6">
         <form class="flex flex-col h-full">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex-1">
                 <div>
                     <label class="block text-sm font-medium text-heading" for="custID">ID</label>
                     <input [(ngModel)]="customerObj.custID" id="custID" name="custID" required
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm  bg-amber-50" />
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-heading" for="custName">Name</label>
                     <input [(ngModel)]="customerObj.custName" id="custName" name="custName" required
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm  bg-amber-50" />
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-heading" for="custTitle">Title</label>
                     <input [(ngModel)]="customerObj.custTitle" id="custTitle" name="custTitle"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm  bg-amber-50" />
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-heading" for="DOB">Date of Birth</label>
                     <input [(ngModel)]="customerObj.DOB" id="DOB" type="date" name="DOB"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm  bg-amber-50" />
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-heading" for="salary">Salary</label>
                     <input [(ngModel)]="customerObj.salary" id="salary" type="number" name="salary"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm  bg-amber-50" />
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-heading" for="custAddress">Address</label>
                     <input [(ngModel)]="customerObj.custAddress" id="custAddress" name="custAddress"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm  bg-amber-50" />
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-heading" for="city">City</label>
                     <input [(ngModel)]="customerObj.city" id="city" name="city"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm  bg-amber-50" />
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-heading" for="province">Province</label>
                     <input [(ngModel)]="customerObj.province" id="province" name="province"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm  bg-amber-50" />
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-heading" for="postalcode">Postal Code</label>
                     <input [(ngModel)]="customerObj.postalcode" id="postalcode" name="postalcode"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" />
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm  bg-amber-50" />
                 </div>
             </div>
             <div class="flex justify-end gap-3 pt-8 mt-8 border-t border-gray-200">
@@ -83,7 +83,7 @@
             <input 
                 type="text" 
                 [(ngModel)]="deleteID" 
-                placeholder="Enter Customer ID"
+                placeholder="Enter Customer ID "
                 class="block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500" />
             
             <button 
